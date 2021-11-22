@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "game.scss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-size: 62.5%; // 1rem = 10px
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to top, #2267e7e0, #04034de3),
+    url("/Images/cloud1.jpg");
+
+  background-size: cover;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+h3 {
+  font-size: 1.4rem;
+}
+h1 {
+  font-size: 2rem;
+}
+#highscore-text {
+  height: 13rem;
+  overflow: auto;
+  margin-bottom: 1rem;
+}
+
+.container {
+  background: linear-gradient(to top, #3271e6e0, #181596e3),
+    url("/Images/cloud1.jpg");
+
+  background-size: cover;
+  border-radius: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 58rem;
+  width: 45rem;
+  min-width: 300px;
+  margin: 2rem 10rem;
+  box-shadow: 0px 0px 15px 5px rgba(253, 246, 246, 0.5);
+  color: white;
+  font-size: 1.5rem;
+}
+
+.logo {
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 18rem;
+  width: 18rem;
+  border-radius: 50%;
+  background-color: #2a7cf6;
+  margin: 5rem 0 4rem 0;
+  p {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+  }
+}
+
+.btn-landing {
+  cursor: pointer;
+  border-radius: 5rem;
+  background-color: #203b81;
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 1rem;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  width: 18rem;
+  text-align: center;
+}
+
+.buttontest {
+  button {
+    color: blue;
+    height: 3rem;
+    width: 7rem;
+    background-color: rgba(37, 76, 253, 0.726);
+    border: none;
+    border-radius: 10%;
+  }
+}
+
+.timer-bar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30rem;
+  height: 3rem; //if we have text inside it, it will scale according to the text.
+  border: 2px solid #767676;
+  border-radius: 0.7rem; //half of the height to make the corners rounded.
+  margin-bottom: 2rem;
+}
+
+.shrinking-timer-bar {
+  width: 90%;
+  height: 88%;
+  position: absolute;
+  left: 0.5em;
+  top: 0.5em;
+  bottom: 0.5em;
+  width: 0;
+  max-width: calc(
+    100% - 1em
+  ); //and can not overflow the parent because i take away 1 em from max width.
+  min-width: 1.5em; // the bar will never be completely 0.
+  background-color: #63f700;
+  border-radius: 0.4rem;
+  animation: timer 10s ease-in forwards; //makes the timer go slower in the begining and the speed up, the both makes it stay at 0 in the end.
+}
+
+@keyframes timer {
+  from {
+    background-color: #63f700;
+  }
+  to {
+    background-color: rgb(255, 0, 0);
+  }
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+#quiz-landing-logo {
+  height: 25rem;
+}
+
+@media only screen and (max-width: 400px) {
+  .container {
+    background: none;
+    box-shadow: none;
+  }
+
+  body {
+    background: #04034de3;
+  }
+
+  .timer-bar {
+    width: 25rem;
+  }
+  
+}
